@@ -51,12 +51,10 @@ def main():
        
         for line in tweets_file:
             words = line.split()
-            tweet_line = []
+ 
     
-            comment = []
-            for word in words:
-                comment.append(word)
-            lines.append(comment)
+            
+            lines.append(words)
            
             # for i in range(len(line)-1):
             #     tweet_line.append(line[i])
@@ -75,15 +73,20 @@ def main():
                 max = len(lines[i+1])
         
         for i in range(max):
-            output_tweets_file.write("comment"+i+"gg")
+            output_tweets_file.write("comment"+str(i)+"         gg")
+        
+        output_tweets_file.write("\n")
             
+        for i in range(max):
             for comment_array in lines:
                 word_to_write = ''
-                if comment_array[i] is None:
-                    word_to_write = 'none'
-                else:
+                
+                try:
                     word_to_write = comment_array[i]
-                output_tweets_file.write(word_to_write+"gg")
+                except IndexError:
+                    word_to_write = 'none'    
+                
+                output_tweets_file.write(word_to_write+"         gg")
             output_tweets_file.write("/n")
         
         
@@ -95,7 +98,7 @@ def main():
     # plt.ylabel('some numbers')
     # plt.show()
     
-    df = pd.read_csv("output_tweets.txt", sep="gg", encoding='windows-1256')
+    df = pd.read_csv("output_tweets.txt", sep="         gg", encoding='windows-1256')
     
     print(df.head())
     
