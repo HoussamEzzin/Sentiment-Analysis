@@ -41,67 +41,7 @@ def main():
     # output_tweets_file = open("output_tweets.txt",'a')
 
 
-    # sep = "                "
-    # tweets = []
-
-
-    # with open("Tweets.txt") as tweets_file:
-    #     i = 0
-    #     for line in tweets_file:
-    #         i += 1
-    #         print("Progress :", (i*100)/10006)
-    #         line = line.split()
-
-    #         tweets.append(line)
-    # max = 0
-    # for tweet in tweets:
-    #     if max < len(tweet):
-    #         max = len(tweet)
-
-    # for i in range(max):
-    #     if i == 0 :
-    #         output_tweets_file.write("emotion"+sep)
-    #     else:
-    #         output_tweets_file.write("word"+sep)
-
-    # output_tweets_file.write("\n")
-    # k = 0
-    # for tweet in tweets:
-    #     print("tokens :", tweet)
-    #     k += 1
-    #     print("Progress :", (k*100)/10006)
-    #     for i in range(max):
-    #         emotion = tweet[len(tweet)-1]
-    #         print("EMOTION ")
-    #         if emotion == 'POS':
-    #             emotion = emotion.replace("POS","P")
-    #         elif emotion == 'NEUTRAL' :
-    #             emotion = emotion.replace("NEUTRAL","NE")
-    #         elif emotion == 'OBJ':
-    #             emotion = emotion.replace("NEUTRAL","NE")
-    #             print("GG")
-    #             break
-    #         elif emotion == 'NEG':
-    #             emotion = emotion.replace("NEG","N")
-
-    #         try:
-    #             output_tweets_file.write(tweet[i]+sep)
-    #         except IndexError:
-    #             output_tweets_file.write(" "+sep)
-
-    #     output_tweets_file.write("\n")
-
-
-
-
-    # output_tweets_file.close()
-
-    # plt.plot([1,2,3,4])
-    # plt.ylabel('some numbers')
-    # plt.show()
-
-
-    # df = pd.read_csv("output_tweets.txt", sep=separator, encoding='windows-1256')
+   
     tweets = pd.read_excel("final.xlsx")
 
     # print(tweets.head())
