@@ -10,8 +10,8 @@
 '''
 
 from re import sub
-from numpy import NaN
-from load_files import get_negatives_ar, get_positives_ar
+
+from load_files import get_negatives_ar, get_positives_ar, get_negation_words
 import pandas as pd
 
 
@@ -35,24 +35,38 @@ dataset_size = len(tweets)
 count = 0
 progress = 0
 for i in range(dataset_size):
+    found = False
     score = 0
     progress +=1
-    print("Progress : "+str((progress*100)/dataset_size)+"%")
-    for word in tweets[i]:
-        if word in get_positives_ar():
-            score += 1
-        elif word in get_negatives_ar():
-            score -= 1
+    print("Tweet number  : "+str(i))
+    negation = False
+    tokens = tweets[i].split(' ')
+    for j in range(len(tokens)):
+     
+        if tokens[j] in get_positives_ar():
+            
+            score +=1
+        elif tokens[j] in get_negatives_ar():
+           
+            score -=1
+    
+
+    # print('SCORE : '+str(score))
+       
         
     if score > 0 and polarity_list[i] == "PO":
-       
+        found = True
         count += 1
     elif score < 0 and polarity_list[i] == "NG":
-       
+        found = True
         count += 1
-    elif score == 0 and polarity_list[i] == "NE":
+    elif polarity_list[i] == "NE":
+        found =True
+        count += 1
+    
+    if found == False:
+        print("wrong in number : "+str(i))
         
-        count += 1
     
 print("PRECISION :", (count/dataset_size)*100)
   
