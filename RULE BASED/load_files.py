@@ -9,14 +9,14 @@ for line in high_pos_file:
         line = line[0:len(line)-1]
     high_pos_tokens.append(line.strip())
     
-medium_pos_file = open('sentiment_files/tiers/medium_pos.txt','r',encoding="windows-1256")
+medium_pos_file = open('sentiment_files/tiers/medium_pos1.txt','r',encoding="windows-1256")
 medium_pos_tokens = []
 for line in medium_pos_file:
     if re.search('\n$',line):
         line = line[0:len(line)-1]
     medium_pos_tokens.append(line.strip())
 
-low_pos_file = open('sentiment_files/tiers/low_pos.txt','r',encoding="windows-1256")
+low_pos_file = open('sentiment_files/tiers/low_pos1.txt','r',encoding="windows-1256")
 low_pos_tokens = []
 for line in low_pos_file:
     if re.search('\n$',line):
@@ -24,21 +24,21 @@ for line in low_pos_file:
     low_pos_tokens.append(line.strip())
 
 # ****************** NEGATIVES
-low_neg_file = open('sentiment_files/tiers/low_neg.txt','r',encoding="windows-1256")
+low_neg_file = open('sentiment_files/tiers/low_neg1.txt','r',encoding="windows-1256")
 low_neg_tokens = []
 for line in low_neg_file:
     if re.search('\n$',line):
         line = line[0:len(line)-1]
     low_neg_tokens.append(line.strip())
 
-medium_neg_file = open('sentiment_files/tiers/medium_neg.txt','r',encoding="windows-1256")
+medium_neg_file = open('sentiment_files/tiers/medium_neg1.txt','r',encoding="windows-1256")
 medium_neg_tokens = []
 for line in medium_neg_file:
     if re.search('\n$',line):
         line = line[0:len(line)-1]
     medium_neg_tokens.append(line.strip())
     
-high_neg_file = open('sentiment_files/tiers/high_neg.txt','r',encoding="windows-1256")
+high_neg_file = open('sentiment_files/tiers/high_neg1.txt','r',encoding="windows-1256")
 high_neg_tokens = []
 for line in high_neg_file:
     if re.search('\n$',line):

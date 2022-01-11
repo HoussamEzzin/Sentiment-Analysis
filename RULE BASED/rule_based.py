@@ -69,7 +69,9 @@ for i in range(dataset_size):
     elif score < 0 and polarity_list[i] == "NG":
         found = True
         count += 1
-    elif score ==0 and  polarity_list[i] == "NE":
+    elif score !=0 and  polarity_list[i] == "NE":
+        print("ERROR FATAL // score :"+str(score))
+    elif score == 0 and polarity_list[i] == "NE":
         found =True
         count += 1
     
