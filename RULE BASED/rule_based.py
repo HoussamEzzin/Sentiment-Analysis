@@ -11,7 +11,7 @@
 
 from re import sub
 
-from load_files import get_negatives_ar, get_positives_ar, get_negation_words
+from load_files import *
 import pandas as pd
 
 
@@ -43,12 +43,21 @@ for i in range(dataset_size):
     tokens = tweets[i].split(' ')
     for j in range(len(tokens)):
      
-        if tokens[j] in get_positives_ar():
-            
-            score +=1
-        elif tokens[j] in get_negatives_ar():
-           
-            score -=1
+        if tokens[j] in get_high_pos():
+            score +=3
+        elif tokens[j] in get_medium_pos():
+            score += 2
+        elif tokens[j] in get_low_pos():
+            score += 1
+        
+        elif tokens[j] in get_high_neg():
+            score -=3
+        elif tokens[j] in get_medium_neg():
+            score -= 2
+        elif tokens[j] in get_low_neg():
+            score -= 1
+        
+       
     
 
     # print('SCORE : '+str(score))
@@ -60,7 +69,7 @@ for i in range(dataset_size):
     elif score < 0 and polarity_list[i] == "NG":
         found = True
         count += 1
-    elif polarity_list[i] == "NE":
+    elif score ==0 and  polarity_list[i] == "NE":
         found =True
         count += 1
     

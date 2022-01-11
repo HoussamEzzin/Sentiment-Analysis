@@ -1,7 +1,7 @@
 import re
 
 
-
+# -**/************* POSITIVES
 high_pos_file = open('sentiment_files/tiers/high_pos.txt','r',encoding="windows-1256")
 high_pos_tokens = []
 for line in high_pos_file:
@@ -22,7 +22,28 @@ for line in low_pos_file:
     if re.search('\n$',line):
         line = line[0:len(line)-1]
     low_pos_tokens.append(line.strip())
+
+# ****************** NEGATIVES
+low_neg_file = open('sentiment_files/tiers/low_neg.txt','r',encoding="windows-1256")
+low_neg_tokens = []
+for line in low_neg_file:
+    if re.search('\n$',line):
+        line = line[0:len(line)-1]
+    low_neg_tokens.append(line.strip())
+
+medium_neg_file = open('sentiment_files/tiers/medium_neg.txt','r',encoding="windows-1256")
+medium_neg_tokens = []
+for line in medium_neg_file:
+    if re.search('\n$',line):
+        line = line[0:len(line)-1]
+    medium_neg_tokens.append(line.strip())
     
+high_neg_file = open('sentiment_files/tiers/high_neg.txt','r',encoding="windows-1256")
+high_neg_tokens = []
+for line in high_neg_file:
+    if re.search('\n$',line):
+        line = line[0:len(line)-1]
+    high_neg_tokens.append(line.strip())
 
 
 
@@ -62,6 +83,24 @@ def get_negatives_ar():
 
 def get_negation_words():
     return negation_words_tokens
+
+def get_high_pos():
+    return high_pos_tokens
+
+def get_medium_pos():
+    return medium_pos_tokens
+
+def get_low_pos():
+    return low_pos_tokens
+
+def get_high_neg():
+    return high_neg_tokens
+
+def get_medium_neg():
+    return medium_neg_tokens
+
+def get_low_neg():
+    return low_neg_tokens
 
 
     
