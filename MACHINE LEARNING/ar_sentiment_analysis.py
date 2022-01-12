@@ -12,9 +12,9 @@ print(tweets.head())
 
 x=tweets['tweet']
 y=tweets['emotion']
-# tweets.dropna(subset = ["tweet"], inplace=True)
+tweets.dropna(subset = ["tweet"], inplace=True)
 # print(x.size)
-x, x_test, y , y_test = train_test_split(x,y,stratify=y,test_size=0.7,random_state=50)
+x, x_test, y , y_test = train_test_split(x,y,stratify=y,test_size=0.3,random_state=42)
 
 
 vec = CountVectorizer()
